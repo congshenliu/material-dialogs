@@ -1,11 +1,10 @@
 apply plugin: 'com.android.library'
 apply from: '../dependencies.gradle'
 
-ext {
-    PUBLISH_GROUP_ID = 'com.afollestad.material-dialogs'
-    PUBLISH_ARTIFACT_ID = 'commons'
-    PUBLISH_VERSION = versions.publishVersion
-}
+// JitPack Maven
+apply plugin: 'com.github.dcendents.android-maven'
+// Your Group
+group='com.github.congshenliu'
 
 android {
     compileSdkVersion versions.compileSdk
@@ -35,5 +34,3 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:' + versions.supportLib
     compile project(':core')
 }
-
-apply from: 'https://raw.githubusercontent.com/afollestad/aidanfollestad.com/master/android-lib-release.gradle'
