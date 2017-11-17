@@ -4,10 +4,10 @@ ext.versions = [
         buildTools        : '26.0.2',
         publishVersion    : '0.9.5.0',
         publishVersionCode: 178,
-        gradlePlugin      : '3.0.0',
+        gradlePlugin      : '2.3.2',
         spotlessPlugin    : '3.6.0',
 
-        supportLib        : '27.0.0',
+        supportLib        : '26.1.0',
         mdProgressBar     : '1.4.2',
         butterKnife       : '8.8.1'
 ]
