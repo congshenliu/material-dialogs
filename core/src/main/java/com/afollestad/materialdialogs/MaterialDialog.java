@@ -42,13 +42,16 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.TextView;
+
 import com.afollestad.materialdialogs.internal.MDButton;
 import com.afollestad.materialdialogs.internal.MDRootLayout;
 import com.afollestad.materialdialogs.internal.MDTintHelper;
 import com.afollestad.materialdialogs.internal.ThemeSingleton;
 import com.afollestad.materialdialogs.util.DialogUtils;
+import com.afollestad.materialdialogs.util.DividerItemDecoration;
 import com.afollestad.materialdialogs.util.RippleHelper;
 import com.afollestad.materialdialogs.util.TypefaceHelper;
+
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -170,6 +173,9 @@ public class MaterialDialog extends DialogBase
     }
     if (recyclerView.getLayoutManager() == null) {
       recyclerView.setLayoutManager(builder.layoutManager);
+    }
+    if(builder.itemDecoration) {
+      recyclerView.addItemDecoration(new DividerItemDecoration(builder.context,LinearLayoutManager.VERTICAL));
     }
     recyclerView.setAdapter(builder.adapter);
     if (listType != null) {
@@ -1166,6 +1172,7 @@ public class MaterialDialog extends DialogBase
     protected boolean negativeColorSet = false;
     protected boolean widgetColorSet = false;
     protected boolean dividerColorSet = false;
+    protected boolean itemDecoration = false;
 
     @DrawableRes protected int listSelector;
     @DrawableRes protected int btnSelectorStacked;
@@ -1482,6 +1489,11 @@ public class MaterialDialog extends DialogBase
 
     public Builder contentLineSpacing(float multiplier) {
       this.contentLineSpacingMultiplier = multiplier;
+      return this;
+    }
+
+    public Builder itemDecoration(boolean itemDecoration){
+      this.itemDecoration = itemDecoration;
       return this;
     }
 
